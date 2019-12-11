@@ -16,21 +16,20 @@
     BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
-    NSUInteger period = [RCTAppleHealthKit uintFromOptions:input key:@"period" withDefault:60];
     if(startDate == nil){
         callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
         return;
     }
+    
+    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
 
-    [self fetchCumulativeSumStatisticsCollection:bloodGlucoseType
-                                            unit:unit
-                                          period:period
-                                       startDate:startDate
-                                         endDate:endDate
-                                       ascending:ascending
-                                           limit:limit
-                            includeManuallyAdded:true
-                                      completion:^(NSArray *results, NSError *error){
+    [self fetchQuantitySamplesOfType:bloodGlucoseType
+                                unit:unit
+                           predicate:predicate
+                           ascending:ascending
+                               limit:limit
+                          completion:^(NSArray *results, NSError *error) {
+        
         if(results){
             callback(@[[NSNull null], results]);
             return;

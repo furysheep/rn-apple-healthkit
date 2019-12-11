@@ -6,7 +6,6 @@ let options = {
   endDate: (new Date()).toISOString(), // optional; default now
   ascending: false, // optional; default false
   limit:10,	// optional; default no limit
-  period: 60, // time interval in minutes optional: default 60
 };
 ```
 Available units are: `'mmolPerL'`, `'mgPerdL'`.
