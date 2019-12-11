@@ -96,6 +96,7 @@ Height Example Response
       * [getFlightsClimbed](/docs/getFlightsClimbed().md)
       * [getHeartRateSamples](/docs/getHeartRateSamples().md)
       * [getHeightSamples](/docs/getHeightSamples().md)
+      * [getHeightSamples](/docs/getInsulinDeliverySamples().md)
       * [getLatestBmi](/docs/getLatestBmi().md)
       * [getLatestBodyFatPercentage](/docs/getLatestBodyFatPercentage().md)
       * [getLatestHeight](/docs/getLatestHeight().md)

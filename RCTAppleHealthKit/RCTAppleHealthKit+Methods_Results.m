@@ -16,18 +16,21 @@
     BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    NSUInteger period = [RCTAppleHealthKit uintFromOptions:input key:@"period" withDefault:60];
     if(startDate == nil){
         callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
         return;
     }
-    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
 
-    [self fetchQuantitySamplesOfType:bloodGlucoseType
-                                unit:unit
-                           predicate:predicate
-                           ascending:ascending
-                               limit:limit
-                          completion:^(NSArray *results, NSError *error) {
+    [self fetchCumulativeSumStatisticsCollection:bloodGlucoseType
+                                            unit:unit
+                                          period:period
+                                       startDate:startDate
+                                         endDate:endDate
+                                       ascending:ascending
+                                           limit:limit
+                            includeManuallyAdded:true
+                                      completion:^(NSArray *results, NSError *error){
         if(results){
             callback(@[[NSNull null], results]);
             return;
@@ -36,6 +39,49 @@
             return;
         }
     }];
+}
+
+- (void)results_getInsulinDeliverySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    HKQuantityType *insulinDeliveryType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierInsulinDelivery];
+
+    NSUInteger limit = [RCTAppleHealthKit uintFromOptions:input key:@"limit" withDefault:HKObjectQueryNoLimit];
+    BOOL ascending = [RCTAppleHealthKit boolFromOptions:input key:@"ascending" withDefault:false];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    NSString *reason = [RCTAppleHealthKit stringFromOptions:input key:@"reason" withDefault:nil];
+    NSUInteger period = [RCTAppleHealthKit uintFromOptions:input key:@"period" withDefault:60];
+    if(startDate == nil){
+        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+        return;
+    }
+    if(reason == nil){
+        callback(@[RCTMakeError(@"reason is required in options", nil, nil)]);
+        return;
+    }
+    if ([reason isEqualToString:@"Bolus"] && [reason isEqualToString:@"Basal"]) {
+        callback(@[RCTMakeError(@"Invalid reason value in options", nil, nil)]);
+        return;
+    }
+    NSPredicate * predicate = [HKQuery predicateForObjectsWithMetadataKey:HKMetadataKeyInsulinDeliveryReason
+                                                            allowedValues:@[[reason isEqualToString:@"Basal"] ? @(HKInsulinDeliveryReasonBasal) : @(HKInsulinDeliveryReasonBolus)]];
+
+    [self fetchCumulativeSumStatisticsCollection:insulinDeliveryType
+                                            unit:[HKUnit internationalUnit]
+                                          period:period
+                                       startDate:startDate
+                                         endDate:endDate
+                                       ascending:ascending
+                                           limit:limit
+                                       predicate:predicate
+                                      completion:^(NSArray *arr, NSError *err){
+                                          if (err != nil) {
+                                              callback(@[RCTJSErrorFromNSError(err)]);
+                                              return;
+                                          }
+                                          callback(@[[NSNull null], arr]);
+    }];
+    
 }
 
 @end

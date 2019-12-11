@@ -37,6 +37,7 @@ export const Permissions = {
   Folate: 'Folate',
   HeartRate: 'HeartRate',
   Height: 'Height',
+  InsulinDelivery: 'InsulinDelivery',
   Iodine: 'Iodine',
   Iron: 'Iron',
   LeanBodyMass: 'LeanBodyMass',

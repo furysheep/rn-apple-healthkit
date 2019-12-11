@@ -20,9 +20,9 @@
 		61232F931E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m in Sources */ = {isa = PBXBuildFile; fileRef = 61232F921E303758000A5026 /* RCTAppleHealthKit+Methods_Mindfulness.m */; };
 		64C42D4A1D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C42D491D351A8800A0A8F7 /* RCTAppleHealthKit+Methods_Vitals.m */; };
 		64E0E73F1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E0E73E1D37947B00EAB905 /* RCTAppleHealthKit+Methods_Results.m */; };
-		C7F88CE6A9E2D530A1CBDFAA /* Pods_RCTAppleHealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84411FDBEEBD8BA9C43C813 /* Pods_RCTAppleHealthKit.framework */; };
 		B790AE8A22E5CCDE00F333FF /* RCTAppleHealthKit+Methods_ReproductiveHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = B790AE8922E5CCDD00F333FF /* RCTAppleHealthKit+Methods_ReproductiveHealth.m */; };
 		B79BEDD622E5AAFA008B6A34 /* RCTAppleHealthKit+Methods_Dietary.m in Sources */ = {isa = PBXBuildFile; fileRef = B79BEDD422E5AAFA008B6A34 /* RCTAppleHealthKit+Methods_Dietary.m */; };
+		C7F88CE6A9E2D530A1CBDFAA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F88CE6A9E2D530A1CBDFAA /* Pods_RCTAppleHealthKit.framework in Frameworks */,
+				C7F88CE6A9E2D530A1CBDFAA /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,17 +139,14 @@
 		B50D2EA9671519248AFEBEE7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AD8403CE6AF2AAD2D7CEE97E /* Pods-RCTAppleHealthKit.debug.xcconfig */,
 				5ED55FED5925473BC28AF03D /* Pods-RCTAppleHealthKit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		BF8F8FA9DB6FF33D400AA73E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C84411FDBEEBD8BA9C43C813 /* Pods_RCTAppleHealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -295,7 +292,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ios/Pods/Headers/Public/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -334,7 +331,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "${SRCROOT}/../../ios/Pods/Headers/Public/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -343,7 +340,6 @@
 		};
 		3774C8971D2092F20000B3F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AD8403CE6AF2AAD2D7CEE97E /* Pods-RCTAppleHealthKit.debug.xcconfig */;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../../react-native/React/**",

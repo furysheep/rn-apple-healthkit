@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/github_account/react-native-healthkit"
   s.license      = "MIT"
   s.author      = { "Terrillo Walls" => "terrillo@terrillo.com" }
-  s.platforms    = { :ios => "9.0" }
+  s.platforms    = { :ios => "11.0" }
   s.source       = { :git => "https://github.com/github_account/react-native-healthkit.git", :tag => "#{s.version}" }
 
   s.source_files = "RCTAppleHealthKit/**/*.{h,m,swift}"
