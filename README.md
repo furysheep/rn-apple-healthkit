@@ -97,6 +97,7 @@ Height Example Response
       * [getHeartRateSamples](/docs/getHeartRateSamples().md)
       * [getHeightSamples](/docs/getHeightSamples().md)
       * [getHeightSamples](/docs/getInsulinDeliverySamples().md)
+      * [getInsulinDeliverySamples](/docs/getInsulinDeliverySamples().md)
       * [getLatestBmi](/docs/getLatestBmi().md)
       * [getLatestBodyFatPercentage](/docs/getLatestBodyFatPercentage().md)
       * [getLatestHeight](/docs/getLatestHeight().md)
@@ -113,8 +114,10 @@ Height Example Response
       * [getStepCount](/docs/getStepCount().md)
       * [getWeightSamples](/docs/getWeightSamples().md)
     * Write Methods
+      * [saveBloodGlucose](/docs/saveBloodGlucose().md)
       * [saveBmi](/docs/saveBmi().md)
       * [saveHeight](/docs/saveHeight().md)
+      * [saveInsulinDelivery](/docs/saveInsulinDelivery().md)
       * [saveMindfulSession](/docs/saveMindfulSession().md)
       * [saveWeight](/docs/saveWeight().md)
       * [saveSteps](/docs/saveSteps().md)

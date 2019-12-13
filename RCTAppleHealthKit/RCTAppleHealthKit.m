@@ -251,6 +251,16 @@ RCT_EXPORT_METHOD(getInsulinDeliverySamples:(NSDictionary *)input callback:(RCTR
     [self results_getInsulinDeliverySamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(saveBloodGlucose:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self results_saveBloodGlucose:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(saveInsulinDelivery:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self results_saveInsulinDelivery:input callback:callback];
+}
+
 RCT_EXPORT_METHOD(getSleepSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self sleep_getSleepSamples:input callback:callback];
