@@ -61,12 +61,14 @@
         callback(@[RCTMakeError(@"Invalid reason value in options", nil, nil)]);
         return;
     }
-    NSPredicate * predicate = [HKQuery predicateForObjectsWithMetadataKey:HKMetadataKeyInsulinDeliveryReason
+    NSPredicate * predicate1 = [HKQuery predicateForObjectsWithMetadataKey:HKMetadataKeyInsulinDeliveryReason
                                                             allowedValues:@[[reason isEqualToString:@"Basal"] ? @(HKInsulinDeliveryReasonBasal) : @(HKInsulinDeliveryReasonBolus)]];
+    
+    NSPredicate * predicate2 = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
 
     [self fetchQuantitySamplesOfType:insulinDeliveryType
                                 unit:[HKUnit internationalUnit]
-                           predicate:predicate
+                           predicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[predicate1, predicate2]]
                            ascending:ascending
                                limit:limit
                           completion:^(NSArray *results, NSError *error) {
